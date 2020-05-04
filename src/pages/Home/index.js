@@ -24,7 +24,7 @@ function Home() {
             type='button'
             onClick={() => { }}
           >
-            <div><MdFlightTakeoff size={16} color='#FFF'/></div>
+            <div><MdFlightTakeoff size={16} color='#FFF' /></div>
             <span>Solicitar reserva</span>
           </button>
         </li>
