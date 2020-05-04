@@ -5,7 +5,7 @@ function reserve(state = [], action) {
   // console.log(action)
   console.log(state)
   switch (action.type) {
-    case 'ADD_RESERVE':
+    case 'ADD_RESERVE_SUCESS':
       return produce(state, draft => {
         const tripIndex = draft.findIndex(trip => trip.id === action.trip.id)
         if (tripIndex >= 0) {
