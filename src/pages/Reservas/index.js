@@ -16,7 +16,7 @@ function Reservas() {
             alt={item.title}
           />
           <strong>{item.title}</strong>
-          <span>Quantidade: 2</span>
+      <span>Quantidade: {item.amount}</span>
           <button
             type='button'
             onClick={() => { }}
