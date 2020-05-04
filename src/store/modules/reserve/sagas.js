@@ -1,6 +1,7 @@
 import { select, call, put, all, takeLatest } from 'redux-saga/effects'
 import { addReserveSucess, updateAmountReserveSucess } from './actions'
 import api from '../../../services/api'
+import history from '../../../services/history'
 function* addToReserve({ id }) {
   const tripExists = yield select(state => state.reserve.find(trip => trip.id === id))
   const myStock = yield call(api.get, `stock/${id}`)
@@ -18,6 +19,7 @@ function* addToReserve({ id }) {
     const response = yield call(api.get, `trips/${id}`)
     const data = { ...response.data, amount: 1 }
     yield put(addReserveSucess(data))
+    history.push('/reservas')
   }
 }
 
@@ -31,6 +33,9 @@ function* updateAmount({ id, amount }) {
   }
   yield put(updateAmountReserveSucess(id, amount))
 }
+
+
+
 export default all([
   takeLatest('ADD_RESERVE_REQUEST', addToReserve),
   takeLatest('UPDATE_RESERVE_REQUEST', updateAmount),
